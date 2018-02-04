@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,30 +15,10 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script>
-    ons.bootstrap()
-      .controller('HelloController', function() {
-        this.world = 'World';
-      });
-    ons.ready(function() {
-      console.log("Onsen UI is ready!");
-    });
+    var app = angular.module('myApp', ['onsen']);
   </script>
 </head>
 <body>
-  <ons-page ng-controller="HelloController as hello">
-    <ons-toolbar>
-      <div class="center">Introduction</div>
-    </ons-toolbar>
-
-    <div class="content" style="margin: 10px;">
-      <p>What is your name?</p>
-      <p>
-        <ons-input modifier="underbar" ng-model="hello.world" placeholder="Your name" float></ons-input>
-      </p>
-      <p>
-        Hello, {{ hello.world || 'stranger' }}!
-      </p>
-    </div>
-  </ons-page>
+  <ons-navigator page="repositories.html"></ons-navigator>
 </body>
 </html>
