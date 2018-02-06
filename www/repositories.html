@@ -1,5 +1,6 @@
-<ons-page>
+<ons-page ng-controller="RepositoryController">
     <ons-toolbar>
-    <div class="center">Repositories</div>
-  </ons-toolbar>
+        <div class="center">Repositories</div>
+    </ons-toolbar>
+    <ons-list ng-repeat="repository in repositories">{{repository}}</ons-list>
 </ons-page>
