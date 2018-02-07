@@ -14,8 +14,16 @@
         <link rel="stylesheet" href="css/style.css">
         <script>
             var app = angular.module('myApp', ['onsen']);
-            app.controller(`RepositoryController`, function($scope){
-                $scope.repositories = ["LifeGame", "matchland"];
+            // repositories.htmlで使うコントローラー
+            app.controller(`RepositoryController`, function ($scope) {
+                // 決め打ちのデータ(後で置き換える)
+                $scope.repositories = [{
+                    name: "LifeGame",
+                    description: "A lifegame written with Kotlin + Libgdx"
+                }, {
+                    name: "matchland",
+                    description: "A libGDX game written in Kotlin. Spread your land to win!"
+                }];
             })
         </script>
     </head>
