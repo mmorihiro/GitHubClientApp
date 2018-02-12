@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "standard"
   },
   "dependencies": {
     "onsenui": "^2.9.1",
@@ -12,5 +13,13 @@
     "react-dom": "^16.2.0",
     "react-onsenui": "^1.10.0",
     "react-scripts": "1.1.1"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "ignore": [
+      "/src/registerServiceWorker.js"
+    ]
   }
 }
