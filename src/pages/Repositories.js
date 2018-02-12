@@ -10,11 +10,11 @@ export default class Repositories extends React.Component {
 
     // 決め打ちのデータ(後で置き換える)
     this.repositories = [{
-      name: "LifeGame",
-      description: "A lifegame written with Kotlin + Libgdx"
+      name: 'LifeGame',
+      description: 'A lifegame written with Kotlin + Libgdx'
     }, {
-      name: "matchland",
-      description: "A libGDX game written in Kotlin. Spread your land to win!"
+      name: 'matchland',
+      description: 'A libGDX game written in Kotlin. Spread your land to win!'
     }]
   }
 
@@ -22,11 +22,11 @@ export default class Repositories extends React.Component {
   renderRow (row, index) {
     return (
       <Ons.ListItem key={index} tappable>
-        <div className="center">
-          <span className="list-item__title">
+        <div className='center'>
+          <span className='list-item__title'>
             {row.name}
           </span>
-          <span className="list-item__subtitle">
+          <span className='list-item__subtitle'>
             {row.description}
           </span>
         </div>

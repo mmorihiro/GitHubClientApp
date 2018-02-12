@@ -9,8 +9,8 @@ export default (hasBackButton, title, navigator) => {
 
   return (
     <Ons.Toolbar>
-      <div className="left">{backButton}</div>
-      <div className="center">{title}</div>
+      <div className='left'>{backButton}</div>
+      <div className='center'>{title}</div>
     </Ons.Toolbar>
   )
 }
