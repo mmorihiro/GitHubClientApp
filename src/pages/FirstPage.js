@@ -22,14 +22,25 @@ export default class FirstPage extends React.Component {
             <Ons.Page
                 renderToolbar={() => renderToolbar(false, 'GitHubClient', this.props.navigator)}
             >
+                {/* styleで位置の調整ができる */}
                 <p style={{textAlign: 'center'}}>
+                    <p>
+                        <img src='octocat.png'
+                             alt='octocat'
+                             style={{
+                                 // vhはビューポートの高さに対する1/100の単位
+                                 marginTop: '20vh',
+                                 marginBottom: '10vh'
+                             }}/>
+                    </p>
                     <Ons.Input
                         modifier='underbar'
-                        placeholder="UserName"/>
+                        placeholder='UserName'/>
 
                     <Ons.Button
+                        // まだ何もせずにページ遷移
                         onClick={this.moveToRepositories}
-                        style={{margin: '6px'}}>
+                        style={{marginLeft: '6px'}}>
                         Search
                     </Ons.Button>
                 </p>
