@@ -6,45 +6,45 @@ import Repositories from './Repositories'
 
 // 最初に表示されるページ
 export default class FirstPage extends React.Component {
-    constructor(props) {
-        super(props)
+  constructor (props) {
+    super(props)
 
-        // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
-        this.moveToRepositories = this.moveToRepositories.bind(this)
-    }
+    // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
+    this.moveToRepositories = this.moveToRepositories.bind(this)
+  }
 
-    moveToRepositories() {
-        this.props.navigator.pushPage({page: Repositories, key: 'Repositories'})
-    }
+  moveToRepositories () {
+    this.props.navigator.pushPage({page: Repositories, key: 'Repositories'})
+  }
 
-    render() {
-        return (
-            <Ons.Page
-                renderToolbar={() => renderToolbar(false, 'GitHubClient', this.props.navigator)}
-            >
-                {/* styleで位置の調整ができる */}
-                <p style={{textAlign: 'center'}}>
-                    <p>
-                        <img src='octocat.png'
-                             alt='octocat'
-                             style={{
-                                 // vhはビューポートの高さに対する1/100の単位
-                                 marginTop: '20vh',
-                                 marginBottom: '10vh'
-                             }}/>
-                    </p>
-                    <Ons.Input
-                        modifier='underbar'
-                        placeholder='UserName'/>
+  render () {
+    return (
+      <Ons.Page
+        renderToolbar={() => renderToolbar(false, 'GitHubClient', this.props.navigator)}
+      >
+        {/* styleで位置の調整ができる */}
+        <p style={{textAlign: 'center'}}>
+          <p>
+            <img src='octocat.png'
+              alt='octocat'
+              style={{
+                   // vhはビューポートの高さに対する1/100の単位
+                marginTop: '20vh',
+                marginBottom: '10vh'
+              }} />
+          </p>
+          <Ons.Input
+            modifier='underbar'
+            placeholder='UserName' />
 
-                    <Ons.Button
-                        // まだ何もせずにページ遷移
-                        onClick={this.moveToRepositories}
-                        style={{marginLeft: '6px'}}>
-                        Search
-                    </Ons.Button>
-                </p>
-            </Ons.Page>
-        )
-    }
+          <Ons.Button
+            // まだ何もせずにページ遷移
+            onClick={this.moveToRepositories}
+            style={{marginLeft: '6px'}}>
+            Search
+          </Ons.Button>
+        </p>
+      </Ons.Page>
+    )
+  }
 }
