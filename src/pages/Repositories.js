@@ -2,6 +2,7 @@ import React from 'react'
 import * as Ons from 'react-onsenui'
 
 import renderToolbar from '../renderToolbar'
+import Branches from './Branches'
 
 // リポジトリ一覧のページ
 export default class Repositories extends React.Component {
@@ -16,12 +17,20 @@ export default class Repositories extends React.Component {
       name: 'matchland',
       description: 'A libGDX game written in Kotlin. Spread your land to win!'
     }]
+
+    // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
+    this.renderRow = this.renderRow.bind(this)
+    this.moveToBranches = this.moveToBranches.bind(this)
+  }
+
+  moveToBranches () {
+    this.props.navigator.pushPage({page: Branches, key: 'Branches'})
   }
 
   // リポジトリのデータを受け取って、ListItemに変換する
   renderRow (row, index) {
     return (
-      <Ons.ListItem key={index} tappable>
+      <Ons.ListItem key={index} tappable onClick={this.moveToBranches}>
         <div className='center'>
           <span className='list-item__title'>
             {row.name}
