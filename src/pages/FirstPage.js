@@ -8,13 +8,20 @@ import Repositories from './Repositories'
 export default class FirstPage extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {userName: ''}
 
     // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
     this.moveToRepositories = this.moveToRepositories.bind(this)
+    this.handleUserNameChange = this.handleUserNameChange.bind(this)
   }
 
   moveToRepositories () {
+    Repositories.userName = this.state.userName
     this.props.navigator.pushPage({page: Repositories, key: 'Repositories'})
+  }
+
+  handleUserNameChange (e) {
+    this.setState({userName: e.target.value})
   }
 
   render () {
@@ -34,8 +41,10 @@ export default class FirstPage extends React.Component {
               }} />
           </p>
           <Ons.Input
+            onChange={this.handleUserNameChange}
             modifier='underbar'
-            placeholder='UserName' />
+            placeholder='UserName'
+          />
 
           <Ons.Button
             // まだ何もせずにページ遷移

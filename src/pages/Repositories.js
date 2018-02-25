@@ -6,6 +6,8 @@ import Branches from './Branches'
 
 // リポジトリ一覧のページ
 export default class Repositories extends React.Component {
+  static userName = ''
+  
   constructor (props) {
     super(props)
 
@@ -17,6 +19,7 @@ export default class Repositories extends React.Component {
       name: 'matchland',
       description: 'A libGDX game written in Kotlin. Spread your land to win!'
     }]
+    console.log(Repositories.userName)
 
     // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
     this.renderRow = this.renderRow.bind(this)
