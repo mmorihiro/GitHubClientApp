@@ -9,14 +9,23 @@ export default class Repositories extends React.Component {
   constructor (props) {
     super(props)
 
-    // 決め打ちのデータ(後で置き換える)
-    this.repositories = [{
-      name: 'LifeGame',
-      description: 'A lifegame written with Kotlin + Libgdx'
-    }, {
-      name: 'matchland',
-      description: 'A libGDX game written in Kotlin. Spread your land to win!'
-    }]
+    this.state = {repositories: []}
+
+    fetch('https://api.github.com/users/' + Repositories.userName + '/repos')
+      .then(response => response.json())
+      .then(json => {
+        // レポジトリの名前と説明をJSONから取り出し、リストとして組み立てる
+        const list = json.map(
+          repo => {
+            return {
+              name: repo.name,
+              description: repo.description
+            }
+          }
+        )
+        this.setState({repositories: list})
+      })
+      .catch(error => console.error(error))
 
     // onClickなどで呼ばれたメンバ関数がthisを使えるようにする
     this.renderRow = this.renderRow.bind(this)
@@ -51,7 +60,7 @@ export default class Repositories extends React.Component {
         renderToolbar={() => renderToolbar(true, 'Repositories', this.props.navigator)}
       >
         <Ons.List
-          dataSource={this.repositories}
+          dataSource={this.state.repositories}
           renderRow={this.renderRow}
         />
       </Ons.Page>
