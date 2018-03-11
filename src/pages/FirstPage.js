@@ -17,7 +17,13 @@ export default class FirstPage extends React.Component {
 
   moveToRepositories () {
     Repositories.userName = this.state.userName
-    this.props.navigator.pushPage({page: Repositories, key: 'Repositories'})
+    this.props.navigator.pushPage({
+      page: Repositories,
+      key: 'Repositories',
+      props: {
+        userName: this.state.userName
+      }
+    })
   }
 
   handleUserNameChange (e) {
