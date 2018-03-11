@@ -36,12 +36,12 @@ export default class FirstPage extends React.Component {
         renderToolbar={() => renderToolbar(false, 'GitHubClient', this.props.navigator)}
       >
         {/* styleで位置の調整ができる */}
-        <p style={{textAlign: 'center'}}>
+        <div style={{textAlign: 'center'}}>
           <p>
             <img src='octocat.png'
               alt='octocat'
               style={{
-                   // vhはビューポートの高さに対する1/100の単位
+                // vhはビューポートの高さに対する1/100の単位
                 marginTop: '20vh',
                 marginBottom: '10vh'
               }} />
@@ -58,7 +58,7 @@ export default class FirstPage extends React.Component {
             style={{marginLeft: '6px'}}>
             Search
           </Ons.Button>
-        </p>
+        </div>
       </Ons.Page>
     )
   }
