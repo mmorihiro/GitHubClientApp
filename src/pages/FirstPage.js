@@ -55,6 +55,7 @@ export default class FirstPage extends React.Component {
           <Ons.Button
             // まだ何もせずにページ遷移
             onClick={this.moveToRepositories}
+            disabled={this.state.userName === ''}
             style={{marginLeft: '6px'}}>
             Search
           </Ons.Button>
