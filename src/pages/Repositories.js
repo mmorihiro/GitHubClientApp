@@ -44,6 +44,8 @@ export default class Repositories extends React.Component {
   }
 
   render () {
+    console.log(this.props.userName)
+
     return (
       <Ons.Page
         renderToolbar={() => renderToolbar(true, 'Repositories', this.props.navigator)}

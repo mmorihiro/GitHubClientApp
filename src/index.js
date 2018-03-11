@@ -11,7 +11,14 @@ import registerServiceWorker from './registerServiceWorker'
 // FirstPageを読み込んでNavigatorに渡す処理を行っている
 ReactDOM.render(
   <Ons.Navigator
-    renderPage={(route, navigator) => <route.page key={route.key} navigator={navigator} />}
+    renderPage={(route, navigator) => {
+      const props = {
+        key: route.key,
+        navigator,
+        ...route.props
+      }
+      return React.createElement(route.page, props)
+    }}
     initialRoute={{ page: FirstPage, key: 'FirstPage' }}
   />,
   document.getElementById('root')
