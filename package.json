@@ -19,6 +19,7 @@
   },
   "standard": {
     "ignore": [
+      "/build/",
       "/src/registerServiceWorker.js"
     ]
   }
